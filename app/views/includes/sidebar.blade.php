@@ -7,18 +7,20 @@
                 
                     
                     <li>
-                        <a class="active-menu" href="<?=URL::to('tarifas');?>"><i class="fa fa-dashboard fa-3x"></i> Tarifas</a>
+                        <a class="active-menu" href="<?=URL::to('tarifas');?>"><i class="fa fa-dashboard fa-3x"></i> NOTIFICACIONES</a>
                     </li>
                      <li>
-                        <a href="ui.html"><i class="fa fa-desktop fa-3x"></i> UI Elements</a>
+                        <a href="ui.html"><i class="fa fa-desktop fa-3x"></i> PLAN DE CURSO</a>
                     </li>
                     <li>
+                       <!--
                         <a href="tab-panel.html"><i class="fa fa-qrcode fa-3x"></i> Tabs &amp; Panels</a>
-                    </li>
+                    </li>-->
                            <li>
-                        <a href="chart.html"><i class="fa fa-bar-chart-o fa-3x"></i> Morris Charts</a>
+                        <a href="chart.html"><i class="fa fa-bar-chart-o fa-3x"></i> REPORTES</a>
                     </li>   
                       <li>
+                           <!--
                         <a href="table.html"><i class="fa fa-table fa-3x"></i> Table Examples</a>
                     </li>
                     <li>
@@ -57,11 +59,12 @@
                                
                             </li>
                         </ul>
-                      </li>  
+                      </li> 
                   <li>
                         <a href="blank.html"><i class="fa fa-square-o fa-3x"></i> Blank Page</a>
                     </li>   
                 </ul>
+                   -->
                <br>
             
           
