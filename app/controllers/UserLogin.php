@@ -5,11 +5,19 @@ class UserLogin extends BaseController {
 	public function user(){
 
 		$userdata= array(
-			'username'=> Input::get('username'),
+			'email'=> Input::get('email'),
 			'password'=> Input::get('password')
 			);
+		
+$message = '<div class="alert alert-danger">
+                              <a class="alert-link"> <strong>¡Error.!</strong> Email o Password Incorrectos.</a>
+                            </div>';
+
+		
+
+
 		if(Auth::attempt($userdata)){
-			return Redirect::to('principal');
+			return Redirect::to('principal')->with("message", $message);
 		}
 		else
 		{

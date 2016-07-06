@@ -1,16 +1,19 @@
+@if(Auth::check())
 @extends('layouts.master')
 
+
 @section('title')
-MENU-ADMINISTRADOR
+  Inicio
 
 @stop
 
 @section('content')
-   <IMG src="denegado/bienvenido.png" >
-    
+   <!--<IMG src="denegado/bienvenido.png" > -->
+   
 @stop
 
 
+ @endif
 
 
             

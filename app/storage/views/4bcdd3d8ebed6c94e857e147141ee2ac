@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <link rel="shortcut icon"  type="image/png" href="http://www.uniajc.edu.co/images/favicon.ico" />
  
-        @include('includes.styles')
+        <?php echo $__env->make('includes.styles', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 	     </head>    
          <body>
 
@@ -16,12 +16,12 @@
             </div>
             <div id="loginbox">  
             <form  action="login" method="post">﻿
-            @if (Session::has('login_errors')) 
+            <?php if(Session::has('login_errors')): ?> 
             <p style='color:#FB1D1D'>El email o la contraseña no son Correctos.</p>         
                
-               @else
+               <?php else: ?>
     				<p>Introduzca Email y contraseña para continuar.</p>
-                    @endif
+                    <?php endif; ?>
                     <div class="input-group input-sm">
                         <span class="input-group-addon"><i class="fa fa-user"></i></span><input class="form-control" id="email" placeholder="Email" type="text" name="email">
                     </div>

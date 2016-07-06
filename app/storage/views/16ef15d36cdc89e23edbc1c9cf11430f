@@ -1,4 +1,4 @@
-@if(Auth::check())
+<?php if(Auth::check()): ?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -13,10 +13,10 @@
     <meta name="author" content="">
     
 
-    @include('includes.styles2')
+    <?php echo $__env->make('includes.styles2', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
     <title>
-        @yield('title')
+        <?php echo $__env->yieldContent('title'); ?>
     </title>    
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -34,9 +34,9 @@
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
-        @include('includes.header')
+        <?php echo $__env->make('includes.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-        @include('includes.sidebar')
+        <?php echo $__env->make('includes.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
     </nav>
             
@@ -45,7 +45,7 @@
 
             <div class="container-fluid">
 
-                @yield('content')
+                <?php echo $__env->yieldContent('content'); ?>
 
             </div>
             <!-- /.container-fluid -->
@@ -65,4 +65,4 @@
 </body>
 
 </html>
-    @endif
+    <?php endif; ?>
