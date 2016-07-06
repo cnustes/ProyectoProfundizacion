@@ -48,7 +48,7 @@ return array(
 
 		'sqlite' => array(
 			'driver'   => 'sqlite',
-			'database' => _DIR_.'/../database/production.sqlite',
+			'database' => __DIR__.'/../database/production.sqlite',
 			'prefix'   => '',
 		),
 
@@ -62,14 +62,14 @@ return array(
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 		),
-	
+
 		'pgsql' => array(
 			'driver'   => 'pgsql',
-			'host'     => '127.10.73.2',
-			'database' => 'qualityteam',
-			'username' => 'adminhtsjskg',
-			'password' => 'P42rR5ntwggg',
-			'charset'  => 'UTF8',
+			'host'     => 'localhost',
+			'database' => 'laravelBD',
+			'username' => 'postgres',
+			'password' => 'jorge17j',
+			'charset'  => 'utf8',
 			'prefix'   => '',
 			'schema'   => 'public',
 		),
