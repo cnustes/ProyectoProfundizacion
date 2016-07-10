@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit88e8c45a115ac50ad75506dbf56fb2a4
+class ComposerStaticInit2d1667346d431c093e279677cf9bcf26
 {
     public static $files = array (
         'e40631d46120a9c38ea139981f8dab26' => __DIR__ . '/..' . '/ircmaxell/password-compat/lib/password.php',
@@ -130,6 +130,13 @@ class ComposerStaticInit88e8c45a115ac50ad75506dbf56fb2a4
                 0 => __DIR__ . '/..' . '/nikic/php-parser/lib',
             ),
         ),
+        'O' => 
+        array (
+            'Ollieread\\Multiauth' => 
+            array (
+                0 => __DIR__ . '/..' . '/ollieread/multiauth/src',
+            ),
+        ),
         'N' => 
         array (
             'Net' => 
@@ -212,7 +219,6 @@ class ComposerStaticInit88e8c45a115ac50ad75506dbf56fb2a4
         'ClassPreloader\\Parser\\DirVisitor' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/ClassPreloader/Parser/DirVisitor.php',
         'ClassPreloader\\Parser\\FileVisitor' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/ClassPreloader/Parser/FileVisitor.php',
         'ClassPreloader\\Parser\\NodeTraverser' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/ClassPreloader/Parser/NodeTraverser.php',
-        'CreateUsersTable' => __DIR__ . '/../..' . '/app/database/migrations/2016_06_24_221003_create_users_table.php',
         'Crypt_AES' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/Crypt/AES.php',
         'Crypt_Base' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/Crypt/Base.php',
         'Crypt_Blowfish' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/Crypt/Blowfish.php',
@@ -607,7 +613,6 @@ class ComposerStaticInit88e8c45a115ac50ad75506dbf56fb2a4
         'Jeremeamia\\SuperClosure\\Visitor\\ClosureFinderVisitor' => __DIR__ . '/..' . '/jeremeamia/SuperClosure/src/Jeremeamia/SuperClosure/Visitor/ClosureFinderVisitor.php',
         'Jeremeamia\\SuperClosure\\Visitor\\MagicConstantVisitor' => __DIR__ . '/..' . '/jeremeamia/SuperClosure/src/Jeremeamia/SuperClosure/Visitor/MagicConstantVisitor.php',
         'Math_BigInteger' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/Math/BigInteger.php',
-        'MenuPrincipalController' => __DIR__ . '/../..' . '/app/controllers/MenuPrincipalController.php',
         'Monolog\\ErrorHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/ErrorHandler.php',
         'Monolog\\Formatter\\ChromePHPFormatter' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Formatter/ChromePHPFormatter.php',
         'Monolog\\Formatter\\ElasticaFormatter' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Formatter/ElasticaFormatter.php',
@@ -698,6 +703,17 @@ class ComposerStaticInit88e8c45a115ac50ad75506dbf56fb2a4
         'Net_SSH1' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/Net/SSH1.php',
         'Net_SSH2' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/Net/SSH2.php',
         'Normalizer' => __DIR__ . '/..' . '/patchwork/utf8/src/Normalizer.php',
+        'Ollieread\\Multiauth\\AuthManager' => __DIR__ . '/..' . '/ollieread/multiauth/src/Ollieread/Multiauth/AuthManager.php',
+        'Ollieread\\Multiauth\\Console\\ClearRemindersCommand' => __DIR__ . '/..' . '/ollieread/multiauth/src/Ollieread/Multiauth/Console/ClearRemindersCommand.php',
+        'Ollieread\\Multiauth\\Console\\RemindersTableCommand' => __DIR__ . '/..' . '/ollieread/multiauth/src/Ollieread/Multiauth/Console/RemindersTableCommand.php',
+        'Ollieread\\Multiauth\\Guard' => __DIR__ . '/..' . '/ollieread/multiauth/src/Ollieread/Multiauth/Guard.php',
+        'Ollieread\\Multiauth\\MultiManager' => __DIR__ . '/..' . '/ollieread/multiauth/src/Ollieread/Multiauth/MultiManager.php',
+        'Ollieread\\Multiauth\\MultiauthServiceProvider' => __DIR__ . '/..' . '/ollieread/multiauth/src/Ollieread/Multiauth/MultiauthServiceProvider.php',
+        'Ollieread\\Multiauth\\Reminders\\DatabaseReminderRepository' => __DIR__ . '/..' . '/ollieread/multiauth/src/Ollieread/Multiauth/Reminders/DatabaseReminderRepository.php',
+        'Ollieread\\Multiauth\\Reminders\\PasswordBroker' => __DIR__ . '/..' . '/ollieread/multiauth/src/Ollieread/Multiauth/Reminders/PasswordBroker.php',
+        'Ollieread\\Multiauth\\Reminders\\PasswordBrokerManager' => __DIR__ . '/..' . '/ollieread/multiauth/src/Ollieread/Multiauth/Reminders/PasswordBrokerManager.php',
+        'Ollieread\\Multiauth\\Reminders\\ReminderRepositoryInterface' => __DIR__ . '/..' . '/ollieread/multiauth/src/Ollieread/Multiauth/Reminders/ReminderRepositoryInterface.php',
+        'Ollieread\\Multiauth\\Reminders\\ReminderServiceProvider' => __DIR__ . '/..' . '/ollieread/multiauth/src/Ollieread/Multiauth/Reminders/ReminderServiceProvider.php',
         'PHPParser_Autoloader' => __DIR__ . '/..' . '/nikic/php-parser/lib/PHPParser/Autoloader.php',
         'PHPParser_Builder' => __DIR__ . '/..' . '/nikic/php-parser/lib/PHPParser/Builder.php',
         'PHPParser_BuilderAbstract' => __DIR__ . '/..' . '/nikic/php-parser/lib/PHPParser/BuilderAbstract.php',
@@ -2099,11 +2115,8 @@ class ComposerStaticInit88e8c45a115ac50ad75506dbf56fb2a4
         'Symfony\\Component\\Translation\\Writer\\TranslationWriter' => __DIR__ . '/..' . '/symfony/translation/Symfony/Component/Translation/Writer/TranslationWriter.php',
         'System_SSH_Agent' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/System/SSH/Agent.php',
         'System_SSH_Agent_Identity' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/System/SSH/Agent.php',
-        'Tarifa' => __DIR__ . '/../..' . '/app/models/Tarifa.php',
         'TestCase' => __DIR__ . '/../..' . '/app/tests/TestCase.php',
         'User' => __DIR__ . '/../..' . '/app/models/User.php',
-        'UserLogin' => __DIR__ . '/../..' . '/app/controllers/UserLogin.php',
-        'UserTableSeeder' => __DIR__ . '/../..' . '/app/database/seeds/UserTableSeeder.php',
         'Whoops\\Exception\\ErrorException' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
         'Whoops\\Exception\\Formatter' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/Formatter.php',
         'Whoops\\Exception\\Frame' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/Frame.php',
@@ -2125,16 +2138,15 @@ class ComposerStaticInit88e8c45a115ac50ad75506dbf56fb2a4
         'Whoops\\Run' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Run.php',
         'Whoops\\Util\\Misc' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/Misc.php',
         'Whoops\\Util\\TemplateHelper' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
-        'gettarifasController' => __DIR__ . '/../..' . '/app/controllers/gettarifasController.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit88e8c45a115ac50ad75506dbf56fb2a4::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit88e8c45a115ac50ad75506dbf56fb2a4::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit88e8c45a115ac50ad75506dbf56fb2a4::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit88e8c45a115ac50ad75506dbf56fb2a4::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit2d1667346d431c093e279677cf9bcf26::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit2d1667346d431c093e279677cf9bcf26::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit2d1667346d431c093e279677cf9bcf26::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit2d1667346d431c093e279677cf9bcf26::$classMap;
 
         }, null, ClassLoader::class);
     }
