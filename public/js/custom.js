@@ -1,217 +1,244 @@
+/**
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
+var CURRENT_URL = window.location.href.split('?')[0],
+    $BODY = $('body'),
+    $MENU_TOGGLE = $('#menu_toggle'),
+    $SIDEBAR_MENU = $('#sidebar-menu'),
+    $SIDEBAR_FOOTER = $('.sidebar-footer'),
+    $LEFT_COL = $('.left_col'),
+    $RIGHT_COL = $('.right_col'),
+    $NAV_MENU = $('.nav_menu'),
+    $FOOTER = $('footer');
 
+// Sidebar
+$(document).ready(function() {
+    // TODO: This is some kind of easy fix, maybe we can improve this
+    var setContentHeight = function () {
+        // reset height
+        $RIGHT_COL.css('min-height', $(window).height());
 
-/*=============================================================
-    Authour URI: www.binarycart.com
-    License: Commons Attribution 3.0
+        var bodyHeight = $BODY.outerHeight(),
+            footerHeight = $BODY.hasClass('footer_fixed') ? 0 : $FOOTER.height(),
+            leftColHeight = $LEFT_COL.eq(1).height() + $SIDEBAR_FOOTER.height(),
+            contentHeight = bodyHeight < leftColHeight ? leftColHeight : bodyHeight;
 
-    http://creativecommons.org/licenses/by/3.0/
+        // normalize content
+        contentHeight -= $NAV_MENU.height() + footerHeight;
 
-    100% To use For Personal And Commercial Use.
-    IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
-   
-    ========================================================  */
+        $RIGHT_COL.css('min-height', contentHeight);
+    };
 
+    $SIDEBAR_MENU.find('a').on('click', function(ev) {
+        var $li = $(this).parent();
 
-(function ($) {
-    "use strict";
-    var mainApp = {
-
-        main_fun: function () {
-            /*====================================
-            METIS MENU 
-            ======================================*/
-            $('#main-menu').metisMenu();
-
-            /*====================================
-              LOAD APPROPRIATE MENU BAR
-           ======================================*/
-            $(window).bind("load resize", function () {
-                if ($(this).width() < 768) {
-                    $('div.sidebar-collapse').addClass('collapse')
-                } else {
-                    $('div.sidebar-collapse').removeClass('collapse')
-                }
+        if ($li.is('.active')) {
+            $li.removeClass('active active-sm');
+            $('ul:first', $li).slideUp(function() {
+                setContentHeight();
             });
+        } else {
+            // prevent closing menu if we are on child menu
+            if (!$li.parent().is('.child_menu')) {
+                $SIDEBAR_MENU.find('li').removeClass('active active-sm');
+                $SIDEBAR_MENU.find('li ul').slideUp();
+            }
+            
+            $li.addClass('active');
 
-            /*====================================
-            MORRIS BAR CHART
-         ======================================*/
-            Morris.Bar({
-                element: 'morris-bar-chart',
-                data: [{
-                    y: '2006',
-                    a: 100,
-                    b: 90
-                }, {
-                    y: '2007',
-                    a: 75,
-                    b: 65
-                }, {
-                    y: '2008',
-                    a: 50,
-                    b: 40
-                }, {
-                    y: '2009',
-                    a: 75,
-                    b: 65
-                }, {
-                    y: '2010',
-                    a: 50,
-                    b: 40
-                }, {
-                    y: '2011',
-                    a: 75,
-                    b: 65
-                }, {
-                    y: '2012',
-                    a: 100,
-                    b: 90
-                }],
-                xkey: 'y',
-                ykeys: ['a', 'b'],
-                labels: ['Series A', 'Series B'],
-                hideHover: 'auto',
-                resize: true
+            $('ul:first', $li).slideDown(function() {
+                setContentHeight();
             });
-
-            /*====================================
-          MORRIS DONUT CHART
-       ======================================*/
-            Morris.Donut({
-                element: 'morris-donut-chart',
-                data: [{
-                    label: "Download Sales",
-                    value: 12
-                }, {
-                    label: "In-Store Sales",
-                    value: 30
-                }, {
-                    label: "Mail-Order Sales",
-                    value: 20
-                }],
-                resize: true
-            });
-
-            /*====================================
-         MORRIS AREA CHART
-      ======================================*/
-
-            Morris.Area({
-                element: 'morris-area-chart',
-                data: [{
-                    period: '2010 Q1',
-                    iphone: 2666,
-                    ipad: null,
-                    itouch: 2647
-                }, {
-                    period: '2010 Q2',
-                    iphone: 2778,
-                    ipad: 2294,
-                    itouch: 2441
-                }, {
-                    period: '2010 Q3',
-                    iphone: 4912,
-                    ipad: 1969,
-                    itouch: 2501
-                }, {
-                    period: '2010 Q4',
-                    iphone: 3767,
-                    ipad: 3597,
-                    itouch: 5689
-                }, {
-                    period: '2011 Q1',
-                    iphone: 6810,
-                    ipad: 1914,
-                    itouch: 2293
-                }, {
-                    period: '2011 Q2',
-                    iphone: 5670,
-                    ipad: 4293,
-                    itouch: 1881
-                }, {
-                    period: '2011 Q3',
-                    iphone: 4820,
-                    ipad: 3795,
-                    itouch: 1588
-                }, {
-                    period: '2011 Q4',
-                    iphone: 15073,
-                    ipad: 5967,
-                    itouch: 5175
-                }, {
-                    period: '2012 Q1',
-                    iphone: 10687,
-                    ipad: 4460,
-                    itouch: 2028
-                }, {
-                    period: '2012 Q2',
-                    iphone: 8432,
-                    ipad: 5713,
-                    itouch: 1791
-                }],
-                xkey: 'period',
-                ykeys: ['iphone', 'ipad', 'itouch'],
-                labels: ['iPhone', 'iPad', 'iPod Touch'],
-                pointSize: 2,
-                hideHover: 'auto',
-                resize: true
-            });
-
-            /*====================================
-    MORRIS LINE CHART
- ======================================*/
-            Morris.Line({
-                element: 'morris-line-chart',
-                data: [{
-                    y: '2006',
-                    a: 100,
-                    b: 90
-                }, {
-                    y: '2007',
-                    a: 75,
-                    b: 65
-                }, {
-                    y: '2008',
-                    a: 50,
-                    b: 40
-                }, {
-                    y: '2009',
-                    a: 75,
-                    b: 65
-                }, {
-                    y: '2010',
-                    a: 50,
-                    b: 40
-                }, {
-                    y: '2011',
-                    a: 75,
-                    b: 65
-                }, {
-                    y: '2012',
-                    a: 100,
-                    b: 90
-                }],
-                xkey: 'y',
-                ykeys: ['a', 'b'],
-                labels: ['Series A', 'Series B'],
-                hideHover: 'auto',
-                resize: true
-            });
-           
-     
-        },
-
-        initialization: function () {
-            mainApp.main_fun();
-
         }
-
-    }
-    // Initializing ///
-
-    $(document).ready(function () {
-        mainApp.main_fun();
     });
 
-}(jQuery));
+    // toggle small or large menu
+    $MENU_TOGGLE.on('click', function() {
+        if ($BODY.hasClass('nav-md')) {
+            $SIDEBAR_MENU.find('li.active ul').hide();
+            $SIDEBAR_MENU.find('li.active').addClass('active-sm').removeClass('active');
+        } else {
+            $SIDEBAR_MENU.find('li.active-sm ul').show();
+            $SIDEBAR_MENU.find('li.active-sm').addClass('active').removeClass('active-sm');
+        }
+
+        $BODY.toggleClass('nav-md nav-sm');
+
+        setContentHeight();
+    });
+
+    // check active menu
+    $SIDEBAR_MENU.find('a[href="' + CURRENT_URL + '"]').parent('li').addClass('current-page');
+
+    $SIDEBAR_MENU.find('a').filter(function () {
+        return this.href == CURRENT_URL;
+    }).parent('li').addClass('current-page').parents('ul').slideDown(function() {
+        setContentHeight();
+    }).parent().addClass('active');
+
+    // recompute content when resizing
+    $(window).smartresize(function(){  
+        setContentHeight();
+    });
+
+    setContentHeight();
+
+    // fixed sidebar
+    if ($.fn.mCustomScrollbar) {
+        $('.menu_fixed').mCustomScrollbar({
+            autoHideScrollbar: true,
+            theme: 'minimal',
+            mouseWheel:{ preventDefault: true }
+        });
+    }
+});
+// /Sidebar
+
+// Panel toolbox
+$(document).ready(function() {
+    $('.collapse-link').on('click', function() {
+        var $BOX_PANEL = $(this).closest('.x_panel'),
+            $ICON = $(this).find('i'),
+            $BOX_CONTENT = $BOX_PANEL.find('.x_content');
+        
+        // fix for some div with hardcoded fix class
+        if ($BOX_PANEL.attr('style')) {
+            $BOX_CONTENT.slideToggle(200, function(){
+                $BOX_PANEL.removeAttr('style');
+            });
+        } else {
+            $BOX_CONTENT.slideToggle(200); 
+            $BOX_PANEL.css('height', 'auto');  
+        }
+
+        $ICON.toggleClass('fa-chevron-up fa-chevron-down');
+    });
+
+    $('.close-link').click(function () {
+        var $BOX_PANEL = $(this).closest('.x_panel');
+
+        $BOX_PANEL.remove();
+    });
+});
+// /Panel toolbox
+
+// Tooltip
+$(document).ready(function() {
+    $('[data-toggle="tooltip"]').tooltip({
+        container: 'body'
+    });
+});
+// /Tooltip
+
+// Progressbar
+if ($(".progress .progress-bar")[0]) {
+    $('.progress .progress-bar').progressbar();
+}
+// /Progressbar
+
+// Switchery
+$(document).ready(function() {
+    if ($(".js-switch")[0]) {
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+        elems.forEach(function (html) {
+            var switchery = new Switchery(html, {
+                color: '#26B99A'
+            });
+        });
+    }
+});
+// /Switchery
+
+// iCheck
+$(document).ready(function() {
+    if ($("input.flat")[0]) {
+        $(document).ready(function () {
+            $('input.flat').iCheck({
+                checkboxClass: 'icheckbox_flat-green',
+                radioClass: 'iradio_flat-green'
+            });
+        });
+    }
+});
+// /iCheck
+
+// Table
+$('table input').on('ifChecked', function () {
+    checkState = '';
+    $(this).parent().parent().parent().addClass('selected');
+    countChecked();
+});
+$('table input').on('ifUnchecked', function () {
+    checkState = '';
+    $(this).parent().parent().parent().removeClass('selected');
+    countChecked();
+});
+
+var checkState = '';
+
+$('.bulk_action input').on('ifChecked', function () {
+    checkState = '';
+    $(this).parent().parent().parent().addClass('selected');
+    countChecked();
+});
+$('.bulk_action input').on('ifUnchecked', function () {
+    checkState = '';
+    $(this).parent().parent().parent().removeClass('selected');
+    countChecked();
+});
+$('.bulk_action input#check-all').on('ifChecked', function () {
+    checkState = 'all';
+    countChecked();
+});
+$('.bulk_action input#check-all').on('ifUnchecked', function () {
+    checkState = 'none';
+    countChecked();
+});
+
+function countChecked() {
+    if (checkState === 'all') {
+        $(".bulk_action input[name='table_records']").iCheck('check');
+    }
+    if (checkState === 'none') {
+        $(".bulk_action input[name='table_records']").iCheck('uncheck');
+    }
+
+    var checkCount = $(".bulk_action input[name='table_records']:checked").length;
+
+    if (checkCount) {
+        $('.column-title').hide();
+        $('.bulk-actions').show();
+        $('.action-cnt').html(checkCount + ' Records Selected');
+    } else {
+        $('.column-title').show();
+        $('.bulk-actions').hide();
+    }
+}
+
+// Accordion
+$(document).ready(function() {
+    $(".expand").on("click", function () {
+        $(this).next().slideToggle(200);
+        $expand = $(this).find(">:first-child");
+
+        if ($expand.text() == "+") {
+            $expand.text("-");
+        } else {
+            $expand.text("+");
+        }
+    });
+});
+
+// NProgress
+if (typeof NProgress != 'undefined') {
+    $(document).ready(function () {
+        NProgress.start();
+    });
+
+    $(window).load(function () {
+        NProgress.done();
+    });
+}

@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'uniajc',
+			'database'  => 'prueba',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',
@@ -73,7 +73,6 @@ return array(
 			'prefix'   => '',
 			'schema'   => 'public',
 		),
-
 		'sqlsrv' => array(
 			'driver'   => 'sqlsrv',
 			'host'     => 'localhost',

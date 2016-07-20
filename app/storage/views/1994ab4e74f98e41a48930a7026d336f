@@ -1,0 +1,120 @@
+<?php if($resultado): ?>
+
+
+<link rel="shortcut icon"  type="image/png" href="http://www.uniajc.edu.co/images/favicon.ico" />
+
+
+<?php $__env->startSection('title'); ?>
+Registro Diario
+<?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('content'); ?>
+
+
+                          
+<div class="container">
+<div class="panel panel-default">
+<div class="panel-heading">
+
+
+
+
+
+   
+<h2>Reporte Diario<h2>
+</div>
+<div class="table-responsive">
+<table class="table">
+<thead>
+
+
+
+
+<?php foreach($resultado as $key => $user): ?>
+<?php endforeach; ?>
+<br>
+<tr> 
+<div class="row">
+
+   <div class="col-md-6"><span class="label label-default">Facultad: </span><input type="text" class="form-control input-md" placeholder="<?php echo $user->nombre_facultades; ?>" disabled></div>  
+  
+   <div class="col-md-6"><span class="label label-default">Docente: </span><input type="text" class="form-control input-md" placeholder="<?php echo $user->nombre_user; ?>" disabled></div>
+</div>
+
+<div class="row">
+   <div class="col-md-6"><span class="label label-default">Materia: </span><input type="text" class="form-control input-md" placeholder="<?php echo $user->nombre_asignaturas; ?>" disabled></div>
+   <div class="col-md-6">
+      <div class="row">
+         <div class="col-md-4"><span class="label label-default">Periodo: </span><input type="text" class="form-control input-md" placeholder="<?php echo $user->periodo; ?>" disabled></div>
+         <div class="col-md-4"><span class="label label-default">Grupo: </span><input type="text" class="form-control input-md" placeholder="<?php echo $user->nombre_facultades; ?>" disabled></div>
+         <div class="col-md-4"><span class="label label-default">Dia: </span><input type="text" class="form-control input-md" placeholder="Lunes" disabled></div>
+     
+      </div>
+    
+   </div>
+   
+</div>
+
+<table class="table table-striped">
+   <thead>
+      <tr>
+         <th>MES</th>
+         <th>DIA</th>
+         <th>HORAS</th>
+         <th>SEMANA</th>
+         <th>TEMA</th>
+         <th>FIRMA DOCENTE</th>
+         <th>FIRMA VOCERO</th>
+         <th>OBSERVACIONES</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td>01</td>
+         <td>01</td>
+         <td>3</td>
+         <td>1</td>
+         <td>
+            <select class="form-control">
+            <?php foreach($resultado as $key => $user): ?>
+               <option><?php echo $user->nombre_tema; ?></option>               
+            <?php endforeach; ?>
+            </select>
+            
+            <br>
+     
+            <input type="text" class="form-control input-md" placeholder="Tema adicional">
+         </td>
+         
+         <td><input type="checkbox" class="form-control checkbox"></td>
+         
+         <td><input type="checkbox" class="form-control checkbox"></td>
+         
+         <td><textarea></textarea></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+   
+
+
+<button type="submit" class="btn btn-primary btn-lg glyphicon glyphicon-floppy-disk">Guardar</button>
+
+
+
+
+
+<?php $__env->stopSection(); ?>
+<?php else: ?>
+<?php $__env->startSection('content'); ?>
+<?php $__env->startSection('title'); ?>
+Registro Diario
+<?php $__env->stopSection(); ?>
+
+<img src="../images/error.png" alt="..." WIDTH=178 HEIGHT=180>
+<h1>No se encontró ninguna asignación.</h1>
+<?php $__env->stopSection(); ?>
+<?php endif; ?>
+<?php echo $__env->make('layouts.master2', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

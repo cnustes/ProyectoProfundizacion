@@ -33,6 +33,24 @@ App::after(function($request, $response)
 |
 */
 
+
+App::before(function($request)
+{
+    // Expire the session in 30 min
+    if (Session::get('LAST_ACTIVITY')
+        && (time() - Session::get('LAST_ACTIVITY')) > 1800)    {
+        // Delete session data created by this app:
+     Session::flush();
+     return Redirect::to('SesionOff');
+
+		    
+    }
+    Session::put('LAST_ACTIVITY', time());
+});
+
+
+
+
 Route::filter('auth', function()
 {
 	if (Auth::guest())
@@ -43,7 +61,7 @@ Route::filter('auth', function()
 		}
 		else
 		{
-			return Redirect::guest('/');
+			return Redirect::guest('login');
 		}
 	}
 });
@@ -88,3 +106,26 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+
+Route::filter('auth_user', function()
+{
+	if (Auth::user()->guest())
+	{
+		if (Request::ajax())
+		{
+			return Response::make('Unauthorized', 401);
+		}
+		else
+		{
+			return Redirect::guest('/');
+		}
+	}
+});
+
+
+Route::filter('guest_user', function()
+{
+	if (Auth::user()->check()) return Redirect::to('index');
+});
+

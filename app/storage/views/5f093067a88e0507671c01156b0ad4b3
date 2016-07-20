@@ -1,0 +1,132 @@
+    
+<?php $__env->startSection('title'); ?>
+ Reporte
+<?php $__env->stopSection(); ?>
+
+
+
+
+<?php $__env->startSection('content'); ?>
+
+<h1 align="center">Reporte Semestral - Plan de Gestión</h1><br>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4 col-lg-5"></div>
+        <div class="col-sm-4 col-lg-2">
+            <a href="#" class="thumbnail">
+                 <img src="http://2.bp.blogspot.com/-IaUXg-ApeM4/UF1y5YlATbI/AAAAAAAAAP0/UfrKh6qAPUk/s1600/logo_redondo.jpg" class="img-responsive">
+            </a>
+        </div>
+        <div class="col-sm-4 col-lg-5"></div>
+    </div>
+</div>
+
+
+<div class="container bordes">
+    <div class="row">
+        <div class="col-sm-6">
+            <label>Facultad: ...</label>
+        </div>
+        <div class="col-sm-6">
+            <label>Docente: ...</label>
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <label>Materia: ...</label>   
+        </div> 
+        <div class="col-sm-2">
+            <label>Periodo: ...</label>   
+        </div> 
+        <div class="col-sm-2">
+            <label>Grupo: ...</label>
+        </div>
+        <div class="col-sm-2">
+            <label>Día: ...</label>
+        </div>
+    </div>
+</div><br>
+
+<div class="container bordes2">
+    <div class="row">
+        <div class="col-sm-3 bordes3">
+            <label>FECHA</label><br>
+        </div>
+        <div class="col-sm-1 bordes3">
+            <label>HORAS</label>
+        </div>
+        <div class="col-sm-1 bordes3">
+            <label>SEMANA</label>
+        </div>
+        <div class="col-sm-3 bordes3">
+            <label>TEMAS DEL CONTENIDO</label>
+        </div>
+        <div class="col-sm-1 bordes3">
+            <label>F. DOCENTE</label>
+        </div>
+        <div class="col-sm-1 bordes3">
+            <label>F. VOCERO</label>
+        </div>
+        <div class="col-sm-2 bordes3">
+            <label>OBSERVACIONES</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3 bordes3">
+            <label>...</label>
+        </div>
+        <div class="col-sm-1 bordes3">
+            <label>...</label>
+        </div>
+        <div class="col-sm-1 bordes3">
+            <label>...</label>
+        </div>
+        <div class="col-sm-3 bordes3">
+            <label>...</label>
+        </div>
+        <div class="col-sm-1 bordes3">
+            <label>...</label>
+        </div>
+        <div class="col-sm-1 bordes3">
+            <label>...</label>
+        </div>
+        <div class="col-sm-2 bordes3">
+            <label>...</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3 bordes3">
+            <label>...</label>
+        </div>
+        <div class="col-sm-1 bordes3">
+            <label>...</label>
+        </div>
+        <div class="col-sm-1 bordes3">
+            <label>...</label>
+        </div>
+        <div class="col-sm-3 bordes3">
+            <label>...</label>
+        </div>
+        <div class="col-sm-1 bordes3">
+            <label>...</label>
+        </div>
+        <div class="col-sm-1 bordes3">
+            <label>...</label>
+        </div>
+        <div class="col-sm-2 bordes3">
+            <label>...</label>
+        </div>
+    </div>
+</div>
+
+
+
+
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

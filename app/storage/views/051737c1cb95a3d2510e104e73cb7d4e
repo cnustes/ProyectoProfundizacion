@@ -1,0 +1,18 @@
+    
+<?php $__env->startSection('title'); ?>
+ Reporte
+<?php $__env->stopSection(); ?>
+
+
+
+
+<?php $__env->startSection('content'); ?>
+
+<h1 align="center">Reporte Semestral - Plan de Gestión</h1><br>
+<hr>
+ <center><a class="btn btn-danger btn-lg"href="<?php echo URL::to('Pdf_Semestral/'); ?>">EXPORTAR PDF</a></center>
+
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

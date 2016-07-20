@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+org.jboss.tools.openshift.ApplicationId=57771e692d527123970000a1
+org.jboss.tools.openshift.ApplicationName=qualityteam
+org.jboss.tools.openshift.Connection=https\://camilo.nustes%40gmail.com@openshift.redhat.com
+org.jboss.tools.openshift.Domain=laraveluniajc
+org.jboss.tools.openshift.RemoteName=origin

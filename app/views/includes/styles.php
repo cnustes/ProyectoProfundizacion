@@ -1,10 +1,20 @@
 
- 		<link rel="shortcut icon" href="favicon.ico">
-		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-       <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
-        <link rel="stylesheet" href="css/login.css">
+     <!-- FONTAWESOME STYLES-->
 
-        <link rel="stylesheet" href="/vendor/bootstrap-combobox/css/bootstrap-combobox.css">
+     <!-- GOOGLE FONTS-->
+   
 
-<script src="/vendor/bootstrap-combobox/js/bootstrap-combobox.js"></script>
+<script src="assets/js/jquery-3.1.0.min.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
 
+    <!-- METISMENU SCRIPTS -->
+ 
+
+            
+            <script src="tabla/js/plugins/metisMenu/metisMenu.min.js"></script>
+            <script src="tabla/js/plugins/dataTables/jquery.dataTables.js"></script>
+            <script src="tabla/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+            
+            
+
+            

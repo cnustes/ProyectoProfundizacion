@@ -10646,7 +10646,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoFiltered": "(Informacion Filtrada.... Total: _MAX_ Usuarios.)",
+			"sInfoFiltered": "",
 	
 	
 			/**
@@ -10813,7 +10813,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sSearch": "Buscar Por:",
+			"sSearch": '<span class="glyphicon glyphicon-search"></span>',
 	
 	
 			/**
