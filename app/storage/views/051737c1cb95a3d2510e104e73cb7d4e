@@ -1,0 +1,20 @@
+ <?php echo $__env->make('includes.styles', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> 
+<?php $__env->startSection('title'); ?>
+ Reporte
+<?php $__env->stopSection(); ?>
+
+
+
+
+<?php $__env->startSection('content'); ?>
+
+<h1 align="center">Reporte Semestral - Plan de Gestión</h1><br>
+<hr>
+ <center><a class="btn btn-danger btn-lg fa fa-file-pdf-o fa-2x"href="<?php echo URL::to('Pdf_Semestral/'); ?>">EXPORTAR PDF</a></center>
+<br>
+ <center><a class="btn btn-success btn-lg fa fa-file-excel-o fa-2x"href="<?php echo URL::to('Repor_Excel_Semestral/'); ?>">EXPORTAR EXCEL</a></center>
+
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
