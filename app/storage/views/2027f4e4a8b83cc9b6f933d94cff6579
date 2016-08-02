@@ -1,6 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
+   <body link=yellow vlink=blue alink=black onload="nobackbutton();">
+   
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
@@ -15,7 +18,14 @@
         <?php echo $__env->yieldContent('title'); ?>
         
     </title>  
+<script type="text/javascript">
+  function nobackbutton(){   
+    window.location.hash="no-back-button";   
+   window.location.hash="Again-No-back-button" //chrome   
+   window.onhashchange=function(){window.location.hash="no-back-button";}
+ } 
 
+</script>
 
     <?php echo $__env->make('layouts.Estilo', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
     
@@ -51,7 +61,7 @@
             <!-- menu profile quick info -->
             <div class="profile">
               <div class="profile_pic">
-                <img src="../images/sinFondoLogo.png" alt="..." class="img-circle profile_img">
+                <img src="../images/LogoQualityTeam.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Bienvenido,</span>
@@ -82,9 +92,9 @@
               <div class="menu_section">
                 <h3>Menú de Opciones</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-home"></i> INICIO <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.html">Dashboard</a></li>                     
+                      <li><a href="<?=URL::to('index');?>">PAGINA DE INICIO</a></li>                     
                     </ul>
                   </li>
                   <?php
@@ -144,7 +154,7 @@
             </nav>
           </div>
         </div>        
-        <div class="right_col" role="main" style="min-height: 1800px;">
+        <div class="right_col" role="main">
            <?php echo $__env->yieldContent('content'); ?>      
         </div>
         

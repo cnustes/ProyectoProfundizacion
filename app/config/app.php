@@ -39,7 +39,7 @@ return array(
 	|
 	*/
 
-	'timezone' => 'UTC',
+	'timezone' => 'America/Bogota',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return array(
 	|
 	*/
 
-	'locale' => 'en',
+	'locale' => 'es',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return array(
 	|
 	*/
 
-	'fallback_locale' => 'en',
+	'fallback_locale' => 'es',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -194,6 +194,8 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
         'PDF' 			  => 'Thujohn\Pdf\PdfFacade',
         'Excel' 		  => 'Maatwebsite\Excel\Facades\Excel',
+        'Carbon'		  => 'Carbon\Carbon',
+
 
 	),
 

@@ -39,4 +39,8 @@
 	    	return $this->belongsTo('Facultad', 'asignatura_id');
 	    }
 
+	    public function sesion()	    {
+	    	return $this->belongsTo('Sesion', 'asignacion_id');
+	    }
+
 	}

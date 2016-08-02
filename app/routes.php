@@ -16,6 +16,10 @@ Route::any('Pdf_Semestral', array('as'=>'Pdf_Semestral','uses'=>'HomeController@
 Route::any('Repor_Excel_Semestral', array('as'=>'Repor_Excel_Semestral','uses'=>'HomeController@exportar_execel'))->before("auth_user");
 
 
+Route::controller('reporteDiario/getsesiones', 'getsesionesController');
+
+
+
 
 Route::get('/login','HomeController@login', function()
 {
@@ -33,72 +37,92 @@ Route::any('/director', array('as'=>'vocero','uses'=>'HomeController@director'))
 
 
 Route::any('/reporteDiario/{programa_id}', array('as'=>'reporteDiario','uses'=>'HomeController@reporteDiario'))->before("auth_user");
+//Route::post('/reporteDiario', array('as'=>'reporteDiario','uses'=>'HomeController@reporteDiario'))->before("auth_user");
+Route::post('/materias', array('as'=>'listarMaterias','uses'=>'HomeController@listarMaterias'))->before("auth_user");
+
+Route::get('/reporteDiario', array('as'=>'reporteDiario','uses'=>'HomeController@reporteDiario'))->before("auth_user");
+
+Route::post('/temas', array('as'=>'listarTemas','uses'=>'HomeController@listarSemana'))->before("auth_user");
+
+
+Route::controller('vocero/getsesiones', 'getsesionesController');
+
+
+
+Route::get('/verSesiones','HomeController@CargarSesiones', function($programa_id)
+{
+    return View::make('HomeController.reporteDiario');
+});
 
 
 Route::any('/registroDiario', array('as'=>'registroDiario','uses'=>'HomeController@GuardarSesion'))->before("auth_user");
 
 
-Route::get('/reporteDiario/{programa_id}','HomeController@reporteDiario', function()
+Route::resource('GuardarFirma', 'HomeController');
+
+Route::post('reporteDiario','HomeController@reporteDiario', function()
 {
     return View::make('HomeController.reporteDiario');
 });
+
+
 
 Route::any('/login', array('as'=>'login','uses'=>'HomeController@login'))->before("guest_user");
 Route::any('/salir', array('as'=>'salir','uses'=>'HomeController@salir'));
 
 Route::post('/login', array('before' => 'csrf', function(){
     
-              
-            $rules = array
-                (
-            "email" => "required|email|exists:personas",
-            'password' => 'required',            
-                );
+  
+    $rules = array
+    (
+        "email" => "required|email|exists:personas",
+        'password' => 'required',            
+        );
     
-             $messages = array
-            (
+    $messages = array
+    (
         'email.required' => 'Ingrese el Email.',
         'email.exists' => 'El Email Ingresado No Se Encuentra Registrado',
         'email.email' => 'El Formato Email Esta Incorrecto.',
         'password.required' => 'Ingrese El Password.',
         'password.exists' => 'El Correo o Password estan incorrectos.',
-    );
+        );
     
     $validator = Validator::make(Input::All(), $rules, $messages);
     
-        if ($validator->passes()) {
+    if ($validator->passes()) {
 
-            $user = array(
-                    'email' => Input::get('email'),
-                    'password' => Input::get('password'),                    
-                );
-                
-                $remember = Input::get("remember");
-                $remember == 'On' ? $remember = true : $remember = false;
-                
-               
+        $user = array(
+            'email' => Input::get('email'),
+            'password' => Input::get('password'),                    
+            );
+        
+        $remember = Input::get("remember");
+        $remember == 'On' ? $remember = true : $remember = false;
+        
+        
         $message = '<div class="alert alert-info">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <strong>Bienvenido </strong>
-                            </div>';
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Bienvenido </strong>
+    </div>';
 
 
-                if (Auth::user()->attempt($user, $remember)){                    
-                    return Redirect::route("index")->with("message", $message);    
-                                
-                  
-                     
-                  }else{
-                $message = '<div class="alert alert-danger">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <strong>¡Error... Email o Password Incorrectos..!</strong>
-                            </div>';
+    if (Auth::user()->attempt($user, $remember)){                    
+        return Redirect::route("index")->with("message", $message);    
+        
+        
+        
+    }else{
+        $message = '<div class="alert alert-danger">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>¡Error... Email o Password Incorrectos..!</strong>
+    </div>';
     
-                  return Redirect::back()->with("message", $message); 
-                  }
-                  }
-                  return Redirect::back()->withInput()->withErrors($validator);                 
-            }));
+    return Redirect::back()->with("message", $message); 
+}
+}
+return Redirect::back()->withInput()->withErrors($validator);                 
+}));
 
 
 
